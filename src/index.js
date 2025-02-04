@@ -1,5 +1,6 @@
 require('dotenv').config(); // gets token from env 
 const { Client, IntentsBitField, EmbedBuilder } = require('discord.js');
+const eventHandler = require('./handlers/eventHandler');
 
 const client = new Client({
     intents: [
@@ -11,6 +12,9 @@ const client = new Client({
     ],
 });
 
+eventHandler(client);
+
+/*
 client.on('ready', (c) => {
     console.log(`${c.user.tag}`);
 });
@@ -34,6 +38,8 @@ client.on('interactionCreate', (interaction) => {
         const OG = interaction.options.get('original-gravity').value;
         const FG = interaction.options.get('final-gravity').value;
         let answer;
+        const embed = new EmbedBuilder()
+            .setTitle('Abv for ')
         if(interaction.options.get('formula-type').value === 'standard'){
             answer = Math.round(((OG - FG) * 131.25) * 100) / 100;
             interaction.reply(`The approximate abv is: ${answer}%`);
@@ -45,4 +51,5 @@ client.on('interactionCreate', (interaction) => {
     }
 });
 
+*/
 client.login(process.env.TOKEN);

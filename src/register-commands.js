@@ -7,11 +7,6 @@ const commands = [
         description: 'OG(original Gravity), FG(Final Gravity), Formula(Standard(131.25) or Alternate)',
         options: [
             {
-                name: 'beverage-title',
-                description: 'Name of the beverage',
-                type: ApplicationCommandOptionType.String,
-            },
-            {
                 name: 'original-gravity',
                 description: 'First reading before fermentation',
                 type: ApplicationCommandOptionType.Number,
@@ -38,6 +33,12 @@ const commands = [
                     },
                 ],
                 required: true,
+            },
+            {
+                name: 'beverage-title',
+                description: 'Name of the beverage',
+                type: ApplicationCommandOptionType.String,
+                required: false,
             },  
         ],
     },
